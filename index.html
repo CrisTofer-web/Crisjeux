@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PS5 Ultimate Gaming</title>
+    <title>CRISJEUX | Ultimate Gaming Platform</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,70 +14,135 @@
             <div class="logo">CRIS<span>JEUX</span></div>
             <nav>
                 <ul>
-                    <li><a href="#" class="active">Accueil</a></li>
-                    <li><a href="#jeux">Catalogue</a></li>
-                    <li><a href="#actus">Actualités</a></li>
+                    <li><a href="#hero" class="nav-link active">Accueil</a></li>
+                    <li><a href="#catalogue" class="nav-link">Catalogue</a></li>
+                    <li><a href="#avis-section" class="nav-link">Avis</a></li>
+                    <li>
+                        <button class="btn-cart-toggle" onclick="toggleCart()">
+                            🛒 Panier (<span id="cart-count">0</span>)
+                        </button>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
+    <section id="hero" class="hero">
         <div class="hero-content">
-            <h1>DOMINEZ LE JEU</h1>
-            <p>Découvrez les exclusivités PlayStation 5 les plus immersives de l'année.</p>
-            <a href="#jeux" class="btn-neon">VOIR LES JEUX</a>
+            <div class="platform-badge">PS5 ECOSYSTEM</div>
+            <h1>L'EXPÉRIENCE GAMING ABSOLUE</h1>
+            <p>Gère tes favoris, simule tes achats et rejoins la communauté des passionnés Next-Gen.</p>
+            <a href="#catalogue" class="btn-neon">EXPLORER</a>
         </div>
     </section>
 
-    <section id="jeux" class="games-section">
-        <h2 class="section-title">Jeux du Moment</h2>
-        <div class="games-grid">
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Mon Panier</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cart-items" class="cart-items">
+            <p class="empty-cart-msg">Votre panier est vide.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">Total: <span id="cart-total-price">0.00€</span></div>
+            <button class="btn-checkout" onclick="checkout()">Valider la commande</button>
+        </div>
+    </div>
+
+    <section id="catalogue" class="catalog-section">
+        <h2 class="section-title">CATALOGUE INTERACTIF</h2>
+        
+        <div class="controls-container">
+            <input type="text" id="search-bar" placeholder="Rechercher un jeu..." onkeyup="filterGames()">
             
-            <div class="game-card">
+            <div class="price-filter-box">
+                <label for="price-range">Prix max : <span id="price-val">80</span>€</label>
+                <input type="range" id="price-range" min="50" max="80" value="80" step="5" oninput="updatePriceFilter(this.value)">
+            </div>
+
+            <div class="filter-buttons">
+                <button class="btn-filter active" onclick="filterCategory('all', this)">Tous</button>
+                <button class="btn-filter" onclick="filterCategory('action', this)">Action</button>
+                <button class="btn-filter" onclick="filterCategory('rpg', this)">RPG</button>
+            </div>
+        </div>
+
+        <div class="games-grid" id="games-grid">
+            <div class="game-card" data-category="action" data-title="spider-man 2" data-price="80">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600');"></div>
-                <div class="game-badge">Exclusif</div>
+                <div class="game-badge exclusive">Exclusif</div>
                 <div class="game-info">
                     <h3>Spider-Man 2</h3>
                     <p class="genre">Action / Aventure</p>
                     <div class="card-bottom">
                         <span class="price">79.99€</span>
-                        <button class="btn-like" onclick="toggleLike(this)">❤️ <span>0</span></button>
+                        <div class="actions">
+                            <button class="btn-add-cart" onclick="addToCart('Spider-Man 2', 79.99)">＋ 🛒</button>
+                            <button class="btn-like" onclick="toggleLike('spiderman2', this)">❤️ <span class="like-count">0</span></button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="game-card">
+            <div class="game-card" data-category="rpg" data-title="elden ring" data-price="70">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1651079965103-91a5db4e6bc0?q=80&w=600');"></div>
-                <div class="game-badge">Populaire</div>
+                <div class="game-badge hot">Populaire</div>
                 <div class="game-info">
                     <h3>Elden Ring</h3>
                     <p class="genre">Action / RPG</p>
                     <div class="card-bottom">
-                        <span class="price">69.99€</span>
-                        <button class="btn-like" onclick="toggleLike(this)">❤️ <span>0</span></button>
+                        <span class="price text-accent">69.99€</span>
+                        <div class="actions">
+                            <button class="btn-add-cart" onclick="addToCart('Elden Ring', 69.99)">＋ 🛒</button>
+                            <button class="btn-like" onclick="toggleLike('eldenring', this)">❤️ <span class="like-count">0</span></button>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="game-card">
+            <div class="game-card" data-category="action" data-title="horizon forbidden west" data-price="60">
                 <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600');"></div>
-                <div class="game-badge">Exclusif</div>
+                <div class="game-badge exclusive">Exclusif</div>
                 <div class="game-info">
-                    <h3>Horizon Forbidden West</h3>
-                    <p class="genre">Aventure / Sci-Fi</p>
+                    <h3>Horizon West</h3>
+                    <p class="genre">Action / Sci-Fi</p>
                     <div class="card-bottom">
-                        <span class="price">69.99€</span>
-                        <button class="btn-like" onclick="toggleLike(this)">❤️ <span>0</span></button>
+                        <span class="price">59.99€</span>
+                        <div class="actions">
+                            <button class="btn-add-cart" onclick="addToCart('Horizon West', 59.99)">＋ 🛒</button>
+                            <button class="btn-like" onclick="toggleLike('horizon', this)">❤️ <span class="like-count">0</span></button>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
+    <section id="avis-section" class="reviews-section">
+        <h2 class="section-title">AVIS DES JOUEURS</h2>
+        <div class="reviews-container">
+            <div class="review-form-box">
+                <h3>Laisser une note</h3>
+                <input type="text" id="review-pseudo" placeholder="Votre Pseudo Gamer">
+                <div class="rating-stars">
+                    <span onclick="setRating(1)">★</span><span onclick="setRating(2)">★</span><span onclick="setRating(3)">★</span><span onclick="setRating(4)">★</span><span onclick="setRating(5)">★</span>
+                </div>
+                <textarea id="review-text" placeholder="Qu'avez-vous pensé de notre catalogue ?"></textarea>
+                <button class="btn-neon" onclick="submitReview()">Poster l'avis</button>
+            </div>
+
+            <div class="reviews-list" id="reviews-list">
+                <div class="review-item">
+                    <h4>KratosGamer99 <span class="stars-display">★★★★★</span></h4>
+                    <p>Le site est ultra fluide et stylé, j'adore les effets de flou !</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Crisjeux - Tous droits réservés. Design Next-Gen.</p>
+        <p>&copy; 2026 CRISJEUX Ultimate Engine Studio - Plateforme Web Interactive.</p>
     </footer>
 
     <script src="script.js"></script>
