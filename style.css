@@ -1,25 +1,25 @@
-/* Réinitialisation de base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #0d1117;
+    background-color: #05070f;
     color: #ffffff;
+    font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
 }
 
-/* Barre de navigation */
+/* Navbar haut de gamme */
 header {
-    background-color: #161b22;
-    padding: 20px 5%;
+    background: rgba(5, 7, 15, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 20px 8%;
     position: sticky;
     top: 0;
-    z-index: 100;
-    border-bottom: 2px solid #006fcd;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 111, 253, 0.3);
 }
 
 .navbar {
@@ -29,13 +29,16 @@ header {
 }
 
 .logo {
-    font-size: 24px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 26px;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    color: #fff;
 }
 
 .logo span {
-    color: #006fcd;
+    color: #006ffd;
+    text-shadow: 0 0 10px #006ffd;
 }
 
 nav ul {
@@ -44,162 +47,175 @@ nav ul {
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin-left: 30px;
 }
 
 nav ul li a {
-    color: #c9d1d9;
+    color: #a3a8b4;
     text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: 0.3s;
 }
 
 nav ul li a:hover, nav ul li a.active {
-    color: #006fcd;
+    color: #006ffd;
+    text-shadow: 0 0 8px #006ffd;
 }
 
-/* Section Hero */
+/* Hero avec effet d'impact */
 .hero {
-    background: linear-gradient(rgba(13, 17, 23, 0.8), rgba(13, 17, 23, 0.95)), 
-                url('https://images.unsplash.com/photo-1606813907291-d86efa9b94db?q=80&w=1200') no-repeat center center/cover;
-    height: 60vh;
+    background: linear-gradient(to bottom, rgba(5, 7, 15, 0.2), #05070f), 
+                url('https://images.unsplash.com/photo-1606813907291-d86efa9b94db?q=80&w=1600') no-repeat center center/cover;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
 }
 
 .hero-content h1 {
-    font-size: 45px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(0, 111, 205, 0.5);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 60px;
+    letter-spacing: 4px;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #ffffff, #006ffd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .hero-content p {
     font-size: 18px;
-    color: #8b949e;
-    margin-bottom: 30px;
+    color: #a3a8b4;
+    margin-bottom: 35px;
     max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
-.btn {
+/* Bouton Néon */
+.btn-neon {
     display: inline-block;
-    background-color: #006fcd;
-    color: white;
-    padding: 12px 30px;
+    padding: 14px 35px;
+    color: #fff;
+    background: #006ffd;
     text-decoration: none;
-    border-radius: 5px;
     font-weight: bold;
-    transition: background 0.3s, transform 0.2s;
+    border-radius: 50px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(0, 111, 253, 0.6);
+    transition: 0.3s ease;
 }
 
-.btn:hover {
-    background-color: #00569e;
-    transform: translateY(-2px);
+.btn-neon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(0, 111, 253, 0.9);
 }
 
-/* Section Jeux */
+/* Zone des cartes de jeux */
 .games-section {
-    padding: 60px 5%;
+    padding: 80px 8%;
 }
 
-.games-section h2 {
-    font-size: 32px;
-    margin-bottom: 40px;
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 36px;
     text-align: center;
-    position: relative;
-}
-
-.games-section h2::after {
-    content: '';
-    display: block;
-    width: 50px;
-    height: 4px;
-    background-color: #006fcd;
-    margin: 10px auto 0;
-    border-radius: 2px;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
 }
 
 .games-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
 }
 
+/* Cartes de jeux améliorées */
 .game-card {
-    background-color: #161b22;
-    border-radius: 10px;
+    background: #0e1220;
+    border-radius: 16px;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
-    border: 1px solid #30363d;
-    transition: transform 0.3s, border-color 0.3s;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    background-image: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=400');
-    background-size: cover;
-    background-center: center;
 }
 
 .game-card:hover {
-    transform: translateY(-5px);
-    border-color: #006fcd;
+    transform: translateY(-10px);
+    border-color: #006ffd;
+    box-shadow: 0 10px 30px rgba(0, 111, 253, 0.2);
+}
+
+.card-img {
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    transition: 0.5s;
+}
+
+.game-card:hover .card-img {
+    transform: scale(1.05);
 }
 
 .game-badge {
     position: absolute;
     top: 15px;
-    left: 15px;
-    background-color: #006fcd;
-    color: white;
-    padding: 5px 10px;
-    font-size: 12px;
+    right: 15px;
+    background: #006ffd;
+    padding: 5px 12px;
+    font-size: 11px;
     font-weight: bold;
-    border-radius: 3px;
+    text-transform: uppercase;
+    border-radius: 20px;
 }
 
 .game-info {
-    padding: 20px;
-    background: rgba(22, 27, 34, 0.95);
+    padding: 25px;
 }
 
 .game-info h3 {
-    font-size: 20px;
-    margin-bottom: 5px;
+    font-size: 22px;
+    margin-bottom: 8px;
 }
 
-.game-info p {
-    color: #8b949e;
+.genre {
+    color: #6c7281;
     font-size: 14px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: 700;
+    color: #00ffaa;
 }
 
 .btn-like {
-    background: none;
-    border: 1px solid #30363d;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: white;
-    padding: 5px 12px;
-    border-radius: 20px;
+    padding: 8px 15px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: 0.2s;
 }
 
 .btn-like:hover {
-    background-color: #21262d;
-    border-color: #8b949e;
+    background: rgba(255, 50, 50, 0.2);
+    border-color: #ff3232;
 }
 
 /* Footer */
 footer {
-    background-color: #090d13;
     text-align: center;
-    padding: 30px;
-    color: #8b949e;
-    font-size: 14px;
-    border-top: 1px solid #30363d;
-    margin-top: 60px;
+    padding: 40px;
+    background: #02040a;
+    color: #6c7281;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
