@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
+    background: linear-gradient(-45deg, #001f54, #003b8e, #0066ff, #00b4ff);
+    background-size: 400% 400%;
+    animation: backgroundMove 15s ease infinite;
+}
+
+@keyframes backgroundMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
