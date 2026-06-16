@@ -1,0 +1,97 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:linear-gradient(-45deg,#001f54,#003b8e,#0066ff,#00b4ff);
+background-size:400% 400%;
+animation:bg 15s ease infinite;
+color:white;
+min-height:100vh;
+}
+
+@keyframes bg{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.hero h1{
+font-size:4rem;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+text-shadow:0 0 10px white;
+}
+to{
+text-shadow:0 0 25px #00b4ff,
+0 0 50px #00b4ff;
+}
+}
+
+.hero p{
+font-size:1.2rem;
+margin-top:10px;
+}
+
+.stats{
+text-align:center;
+margin:20px;
+font-size:1.3rem;
+}
+
+.search{
+text-align:center;
+margin:30px;
+}
+
+.search input{
+width:80%;
+max-width:500px;
+padding:15px;
+border:none;
+border-radius:30px;
+font-size:16px;
+}
+
+.games{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:20px;
+border-radius:15px;
+transition:0.4s;
+cursor:pointer;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 25px #00b4ff;
+}
+
+.card h2{
+margin-bottom:10px;
+}
+
+footer{
+text-align:center;
+padding:30px;
+margin-top:30px;
+background:rgba(0,0,0,0.3);
+}
