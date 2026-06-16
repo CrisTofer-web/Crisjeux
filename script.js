@@ -1,34 +1,22 @@
-let compteur = 0;
+// Fonction pour gérer le compteur de likes sur les cartes de jeu
+function toggleLike(button) {
+    // Récupérer la zone du compteur (la balise span à l'intérieur du bouton)
+    const countSpan = button.querySelector('span');
+    let currentLikes = parseInt(countSpan.textContent);
 
-setInterval(() => {
-compteur++;
-document.getElementById("visiteurs").innerText =
-"👥 Visiteurs : " + compteur;
-},1000);
+    // Vérifier si le bouton a déjà été cliqué
+    if (button.classList.contains('liked')) {
+        button.classList.remove('liked');
+        currentLikes--;
+        button.style.backgroundColor = 'transparent';
+        button.style.borderColor = '#30363d';
+    } else {
+        button.classList.add('liked');
+        currentLikes++;
+        button.style.backgroundColor = '#006fcd';
+        button.style.borderColor = '#006fcd';
+    }
 
-const searchInput =
-document.getElementById("searchInput");
-
-searchInput.addEventListener("keyup", () => {
-
-let filtre =
-searchInput.value.toLowerCase();
-
-let cartes =
-document.querySelectorAll(".card");
-
-cartes.forEach(carte => {
-
-let titre =
-carte.querySelector("h2")
-.textContent.toLowerCase();
-
-if(titre.includes(filtre)){
-carte.style.display="block";
-}else{
-carte.style.display="none";
+    // Mettre à jour le texte du compteur
+    countSpan.textContent = currentLikes;
 }
-
-});
-
-});
