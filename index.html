@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crisjeux</title>
+    <title>PS5 Ultimate Gaming</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
         <div class="navbar">
-            <div class="logo">PS5<span>HUB</span></div>
+            <div class="logo">CRIS<span>JEUX</span></div>
             <nav>
                 <ul>
                     <li><a href="#" class="active">Accueil</a></li>
-                    <li><a href="#jeux">Jeux</a></li>
-                    <li><a href="#a-propos">À propos</a></li>
+                    <li><a href="#jeux">Catalogue</a></li>
+                    <li><a href="#actus">Actualités</a></li>
                 </ul>
             </nav>
         </div>
@@ -23,47 +24,60 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>L'Univers PS5 à Portée de Main</h1>
-            <p>Découvrez les meilleurs jeux, les graphismes de nouvelle génération et les exclusivités incontournables.</p>
-            <a href="#jeux" class="btn">Explorer les Jeux</a>
+            <h1>DOMINEZ LE JEU</h1>
+            <p>Découvrez les exclusivités PlayStation 5 les plus immersives de l'année.</p>
+            <a href="#jeux" class="btn-neon">VOIR LES JEUX</a>
         </div>
     </section>
 
     <section id="jeux" class="games-section">
-        <h2>Jeux Vedettes</h2>
+        <h2 class="section-title">Jeux du Moment</h2>
         <div class="games-grid">
             
             <div class="game-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?q=80&w=600');"></div>
                 <div class="game-badge">Exclusif</div>
                 <div class="game-info">
                     <h3>Spider-Man 2</h3>
-                    <p>Action / Aventure</p>
-                    <button class="btn-like" onclick="toggleLike(this)">❤️ <span>0</span></button>
+                    <p class="genre">Action / Aventure</p>
+                    <div class="card-bottom">
+                        <span class="price">79.99€</span>
+                        <button class="btn-like" onclick="toggleLike(this)">❤️ <span>0</span></button>
+                    </div>
                 </div>
             </div>
 
             <div class="game-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1651079965103-91a5db4e6bc0?q=80&w=600');"></div>
+                <div class="game-badge">Populaire</div>
                 <div class="game-info">
                     <h3>Elden Ring</h3>
-                    <p>RPG / Action</p>
-                    <button class="btn-like" onclick="toggleLike(this)">❤️ <span>0</span></button>
+                    <p class="genre">Action / RPG</p>
+                    <div class="card-bottom">
+                        <span class="price">69.99€</span>
+                        <button class="btn-like" onclick="toggleLike(this)">❤️ <span>0</span></button>
+                    </div>
                 </div>
             </div>
 
             <div class="game-card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=600');"></div>
                 <div class="game-badge">Exclusif</div>
                 <div class="game-info">
-                    <h3>God of War Ragnarök</h3>
-                    <p>Action / Mythologie</p>
-                    <button class="btn-like" onclick="toggleLike(this)">❤️ <span>0</span></button>
+                    <h3>Horizon Forbidden West</h3>
+                    <p class="genre">Aventure / Sci-Fi</p>
+                    <div class="card-bottom">
+                        <span class="price">69.99€</span>
+                        <button class="btn-like" onclick="toggleLike(this)">❤️ <span>0</span></button>
+                    </div>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <footer id="a-propos">
-        <p>&copy; 2026 PS5 Gaming Hub - Site vitrine de démonstration.</p>
+    <footer>
+        <p>&copy; 2026 Crisjeux - Tous droits réservés. Design Next-Gen.</p>
     </footer>
 
     <script src="script.js"></script>
