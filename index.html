@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PS5 Universe</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Segoe UI, sans-serif;
+    background:#0d1117;
+    color:white;
+}
+
+header{
+    background:linear-gradient(135deg,#0047ff,#00a2ff);
+    padding:40px 20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:3rem;
+}
+
+header p{
+    margin-top:10px;
+}
+
+.search{
+    text-align:center;
+    margin:30px;
+}
+
+.search input{
+    width:80%;
+    max-width:500px;
+    padding:12px;
+    border:none;
+    border-radius:30px;
+    font-size:16px;
+}
+
+.games{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    padding:20px;
+}
+
+.card{
+    background:#161b22;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.content{
+    padding:15px;
+}
+
+.content h2{
+    margin-bottom:10px;
+}
+
+.note{
+    color:gold;
+    margin-bottom:10px;
+}
+
+button{
+    background:#0066ff;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0050cc;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:30px;
+    background:#161b22;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🎮 PS5 Universe</h1>
+    <p>Les meilleurs jeux PlayStation 5</p>
+</header>
+
+<div class="search">
+    <input type="text" id="searchInput" placeholder="Rechercher un jeu PS5...">
+</div>
+
+<section class="games" id="gamesContainer">
+
+<div class="card">
+    <img src="https://picsum.photos/500/300?1">
+    <div class="content">
+        <h2>Spider-Man 2</h2>
+        <div class="note">⭐⭐⭐⭐⭐ 9.5/10</div>
+        <p>Une aventure spectaculaire avec Peter Parker et Miles Morales.</p>
+        <br>
+        <button>Découvrir</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://picsum.photos/500/300?2">
+    <div class="content">
+        <h2>God of War Ragnarök</h2>
+        <div class="note">⭐⭐⭐⭐⭐ 10/10</div>
+        <p>Kratos et Atreus affrontent la fin du monde nordique.</p>
+        <br>
+        <button>Découvrir</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://picsum.photos/500/300?3">
+    <div class="content">
+        <h2>Gran Turismo 7</h2>
+        <div class="note">⭐⭐⭐⭐⭐ 9/10</div>
+        <p>Le jeu de course de référence sur PlayStation 5.</p>
+        <br>
+        <button>Découvrir</button>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://picsum.photos/500/300?4">
+    <div class="content">
+        <h2>Horizon Forbidden West</h2>
+        <div class="note">⭐⭐⭐⭐⭐ 9.2/10</div>
+        <p>Explorez un immense monde ouvert rempli de machines.</p>
+        <br>
+        <button>Découvrir</button>
+    </div>
+</div>
+
+</section>
+
+<footer>
+    <p>© 2026 PS5 Universe - Site fan créé avec HTML, CSS et JavaScript</p>
+</footer>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("keyup", function() {
+    let filter = searchInput.value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        let title = card.querySelector("h2").textContent.toLowerCase();
+
+        if(title.includes(filter)){
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+});
+</script>
+
+</body>
+</html>
